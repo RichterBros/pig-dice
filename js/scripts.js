@@ -18,11 +18,27 @@ Game.prototype.switchTurn = function(game) {
   }
 }
 
-Player.prototype.addScore = function(){
-
-  this.score += roll;
-  console.log()
+Game.prototype.addScore = function(game) {
+  for (let i=0; this.players.length; i++) {
+    if (this.players[i]) {
+      if (this.players[i].id == this.turn) {
+        return this.players.score += roll;
+      }
+    }
+  }
 }
+  // if (roll === 1) {
+  //   game.switchTurn();
+  // } else {
+  //   for (i=0; i < this.players; i++){
+  //       if (this.player.id === this.turn) {
+  //         this.player.score += roll;
+  //       }
+  //      console.log(player.score)
+  //  }
+
+//}
+//}
 
 // $("#hold").click(function( {
 
@@ -64,11 +80,11 @@ $(document).ready(function() {
   $("#roll").click(function() {
   
     let roll = Math.floor((Math.random() * 6) + 1);
-//    playerOne.switchTurn()
-//    playerTwo.switchTurn()
-    console.log(playerOne);
-    console.log(playerTwo);
     $("#die-value").text(roll);
+//    game.addScore();
+
+    console.log(playerOne, playerTwo);
+    //playerOne, playerTwo)
   
 });
 
