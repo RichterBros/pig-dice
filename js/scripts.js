@@ -1,40 +1,39 @@
 // Business Logic
-Player = function(name, score, turn, id){
+Game = function(players, turn) {
+  this.players = players;
+  this.turn = turn
+}
+
+Player = function(name, score, id){
   this.name = name;
   this.score = score;
-  this.turn = turn;
   this.id = id;
 }
 
-Player.prototype.switchTurn = function(player) {
-  if (this.turn === true) {
-    return this.turn = false;
+Game.prototype.switchTurn = function(game) {
+  if (this.turn === 1) {
+    return this.turn = 2
   } else {
-    return this.turn = true;
+    return this.turn = 1
   }
 }
 
 Player.prototype.addScore = function(){
 
-this.score += roll;
-
-    console.log()
+  this.score += roll;
+  console.log()
 }
 
 // $("#hold").click(function( {
 
 // })
-Player.prototype.counter = function() {
-  if (this.count%2 === 0) {
-  return true;
-  } else {
-  return false;
-  }
-}
+
 
 // User Interface Logic
 $(document).ready(function() {
-//player.counter()
+
+  let game = new Game("")
+
   let playerOne = new Player("");
   let playerTwo = new Player("");
 
@@ -45,20 +44,30 @@ $(document).ready(function() {
 
     playerOne.name = $("input#player-one-name").val();
     playerOne.score =  0;
-    playerOne.turn = true;
-    playerOne.id = "1";
+    playerOne.id = 1;
     
     playerTwo.name = $("input#player-two-name").val();
     playerTwo.score = 0;
-    playerTwo.turn = false;
-    playerTwo.id = "2";
+    playerTwo.id = 2;
 
+    game.players = [playerOne, playerTwo];
+    game.turn = playerOne.id;
+
+    console.log(game);
     console.log(playerOne, playerTwo);
+
+    game.switchTurn();
+
+    console.log(game);
   });
   
   $("#roll").click(function() {
+  
     let roll = Math.floor((Math.random() * 6) + 1);
-    
+//    playerOne.switchTurn()
+//    playerTwo.switchTurn()
+    console.log(playerOne);
+    console.log(playerTwo);
     $("#die-value").text(roll);
   
 });
