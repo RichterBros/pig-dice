@@ -3,21 +3,21 @@
 
 
 
-// Player = function(){
-//   this.name = name;
-//   this.score = score;
-//   this.turn = turn;
-//   this.id = id;
-// }
+Player = function(name, score, turn, id){
+  this.name = name;
+  this.score = score;
+  this.turn = turn;
+  this.id = id;
+}
 
-// let player1 = new Player()
 
-// Player.prototype.addScore = function(){
 
-// this.score =  
+Player.prototype.addScore = function(){
+
+//this.score =  
 
     
-// }
+}
 
 // let roll = "";
 // $("#roll").click(function() {
@@ -36,13 +36,25 @@
 
 
 $(document).ready(function() {
+
+  let playerOne = new Player("");
+  let playerTwo = new Player("");
+
   $("#player-info").submit(function(event) {
     event.preventDefault();
 
-    let playerOneName = $("input#player-one-name").val();
-    let playerTwoName = $("input#player-two-name").val();
+    playerOne.name = $("input#player-one-name").val();
+    playerOne.score = 0;
+    playerOne.turn = true;
+    playerOne.id = "1";
 
-    console.log(playerOneName, playerTwoName);
+    playerTwo.name = $("input#player-two-name").val();
+    playerTwo.score = 0;
+    playerTwo.turn = false;
+    playerTwo.id = "2";
+
+    console.log(playerOne);
+    console.log(playerTwo);
 
   });
 });
