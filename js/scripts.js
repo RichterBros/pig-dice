@@ -1,7 +1,8 @@
 // Business Logic
-Game = function(players, turn) {
+Game = function(players, turn, currentRoll) {
   this.players = players;
-  this.turn = turn
+  this.turn = turn;
+  this.currentRoll = currentRoll;
 }
 
 Player = function(name, score, id){
@@ -19,12 +20,18 @@ Game.prototype.switchTurn = function(game) {
 }
 
 Game.prototype.addScore = function(game) {
-  for (let i=0; this.players.length; i++) {
-    if (this.players[i]) {
-      if (this.players[i].id == this.turn) {
-        return this.players.score += roll;
+  console.log(this.turn);
+  console.log(this.currentRoll);
+  console.log(this.players[0].score)
+
+  if (this.currentRoll === 1) {
+    this.switchTurn();
+  } else if (this.currentRoll > 1) {
+    if (this.turn === this.players[0].id) {
+      this.players[0].score += this.currentRoll;
+    } else if (this.turn === this.players[1].id) {
+      this.players[1].score += this.currentRoll;
       }
-    }
   }
 }
   // if (roll === 1) {
@@ -53,7 +60,11 @@ $(document).ready(function() {
   let playerOne = new Player("");
   let playerTwo = new Player("");
 
-  let roll = "";
+  let roll = 0;
+
+  game.players = [playerOne, playerTwo];
+  game.turn = 1
+  game.currentRoll = 0;
 
   $("#player-info").submit(function(event) {
     event.preventDefault();
@@ -65,27 +76,42 @@ $(document).ready(function() {
     playerTwo.name = $("input#player-two-name").val();
     playerTwo.score = 0;
     playerTwo.id = 2;
-
-    game.players = [playerOne, playerTwo];
-    game.turn = playerOne.id;
-
-    console.log(game);
-    console.log(playerOne, playerTwo);
-
-    game.switchTurn();
-
-    console.log(game);
   });
   
   $("#roll").click(function() {
   
-    let roll = Math.floor((Math.random() * 6) + 1);
+    roll = Math.floor((Math.random() * 6) + 1);
     $("#die-value").text(roll);
+    game.currentRoll = roll;
+    game.addScore();
+    console.log(playerOne, playerTwo);
+  //   if (roll === 1) {
+  //     game.switchTurn();
+  //   } else if (roll > 1) {
+  //     if (game.turn === playerOne.id) {
+  //       playerOne.score += roll;
+  //     } else if (game.turn === playerTwo.id) {
+  //       playerTwo.score += roll;
+  //       }
+  //   }
+  //   console.log(playerOne, playerTwo);
+  // });
+
+
+    // for (let i=0; game.players.length; i++) {
+    //   if (game.players[i]) {
+    //     if (game.players[i].id == turn) {
+    //       return game.players.score += roll;
+    //     }
+    //   } else {
+    //     return false;
+    //   }
+    // }
 //    game.addScore();
 
-    console.log(playerOne, playerTwo);
+    // console.log(playerOne, playerTwo);
     //playerOne, playerTwo)
   
-});
-
+//});
+  });
 });
