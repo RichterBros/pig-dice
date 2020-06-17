@@ -8,6 +8,24 @@
 
 _{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
 
+| Spec| Example input | Example Output
+| ----------- | ----------- | ----------- |
+| player rolls program return a random value | "roll button click" | "4" |
+| if number is equal to 1, players turn is ended | "roll button click" | "player twos turn" |
+| if player rolls again, values are added | "roll button clicked" | "4 + 2 = 6" |
+| if player 1 holds, score is recorded and turn switches to player 2 | "click hold button" | "Total score = 6" "player 2 is up!" |
+| player that reaches 100 or more wins | "-" |"player wins!"
+| if "start over" button is clicked on the output, page refreshes | "" | "" |
+
+
+
+
+
+
+
+
+
+
 ## Setup/Installation Requirements
 
 * _This is a great place_
