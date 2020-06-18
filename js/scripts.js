@@ -39,6 +39,7 @@ Game.prototype.turnTotal = function(game) {
 Game.prototype.turnScore = function(game) {
   if (this.currentRoll === 1) {
     this.switchTurn();
+    this.resetTurnScore();
   } else if (this.currentRoll > 1) {
     if (this.turn === this.players[0].id) {
       this.players[0].turnScore += this.currentRoll;
@@ -60,6 +61,14 @@ Game.prototype.totalScore = function(game) {
 Game.prototype.resetTurnScore = function(game) {
   this.players[0].turnScore = 0
   this.players[1].turnScore = 0
+}
+
+Game.prototype.winCheck = function(game) {
+  if (this.players[0].gameScore >= 100) {
+    alert(this.player[0].name + " " + "wins!");
+  } else if (this.players[1].gameScore >= 100) {
+    alert(this.players[1].name + " " + "wins!");
+  }
 }
 
 // User Interface Logic
@@ -93,7 +102,7 @@ $(document).ready(function() {
 
     playerOne.name = $("input#player-one-name").val();
     playerOne.turnScore = 0;
-    playerOne.gameScore =  0;
+    playerOne.gameScore = 0;
     playerOne.id = 1;
     
     playerTwo.name = $("input#player-two-name").val();
@@ -117,6 +126,7 @@ $(document).ready(function() {
   $("#hold").click(function() {
     game.totalScore();
     game.resetTurnScore();
+    game.winCheck();
     game.switchTurn();
     game.displayGameDetails();
   });
