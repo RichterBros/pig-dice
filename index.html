@@ -8,7 +8,7 @@
     <title></title>
   </head>
   <body>
-    <div class="container">
+    <div class="container" id="show">
       <form id="player-info">
         <label for="player-one-name">Player 1: Enter your name</label>
         <input id="player-one-name" class="form-control" type="text">
@@ -17,9 +17,13 @@
         <button type="submit" class="btn">Play!</button>
       </form>
     </div>
-    <div class="container">
-      <h5 id="turn"></h5>
+    <div class="container" id="hide">
+      <h5>It is your turn, <span id="turn"></span></h5>
       <h3 id="die-value"></h3>
+      <h3 id="player-one"></h3>
+      <h1 id="player-one-score"></h1>
+      <h3 id="player-two"></h3>
+      <h1 id="player-two-score"></h1>
       <button type="button" class="btn" id="roll">Roll!</button>
       <button type="button" class="btn" id="hold">Hold!</button>
     </div>
