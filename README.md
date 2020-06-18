@@ -74,6 +74,6 @@ JohnNils Olson johnnils@gmail.com ,   Erich Richter erich.richter@gmail.com
 
 ### License
 
-Copyright (c) 2020 **_JohnNils Olson_**
+Copyright (c) 2020 **_JohnNils Olson_** , **_Erich Richter_**
 
 This software is licensed under the MIT license.

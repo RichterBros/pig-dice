@@ -40,6 +40,7 @@ Game.prototype.turnScore = function(game) {
   if (this.currentRoll === 1) {
     this.switchTurn();
     this.resetTurnScore();
+    this.currentRoll = 0;
   } else if (this.currentRoll > 1) {
     if (this.turn === this.players[0].id) {
       this.players[0].turnScore += this.currentRoll;
@@ -59,19 +60,19 @@ Game.prototype.totalScore = function(game) {
 }
 
 Game.prototype.resetTurnScore = function(game) {
-  this.players[0].turnScore = 0
-  this.players[1].turnScore = 0
-}
-
-Game.prototype.winCheck = function(game) {
-  if (this.players[0].gameScore >= 100) {
-    alert(this.player[0].name + " " + "wins!");
-  } else if (this.players[1].gameScore >= 100) {
-    alert(this.players[1].name + " " + "wins!");
-  }
+  this.players[0].turnScore = 0;
+  this.players[1].turnScore = 0;
 }
 
 // User Interface Logic
+Game.prototype.hideButton = function(game) {
+  if (this.currentRoll === 1) {
+    $("#hold").hide();
+  } else {
+    $("#hold").show();
+  }
+}
+
 Game.prototype.displayGameDetails = function(game) {
   
   let currentPlayer = this.turnText();
@@ -85,7 +86,20 @@ Game.prototype.displayGameDetails = function(game) {
   $("#turn").text(currentPlayer);
 }
 
+Game.prototype.winCheck = function(game) {
+  if (this.players[0].gameScore >= 100) {
+    $("#hide").hide();
+    $("#win").show();
+    $("#winner").text(this.players[0].name);
+  } else if (this.players[1].gameScore >= 100) {
+    $("#hide").hide();
+    $("#win").show();
+    $("#winner").text(this.players[1].name);
+  }
+}
+
 $(document).ready(function() {
+
   let game = new Game("")
 
   let playerOne = new Player("");
@@ -96,7 +110,7 @@ $(document).ready(function() {
   game.players = [playerOne, playerTwo];
   game.turn = 1
   game.currentRoll = 0;
-  
+
   $("#player-info").submit(function(event) {
     event.preventDefault();
 
@@ -116,18 +130,27 @@ $(document).ready(function() {
   });
   
   $("#roll").click(function() {
-    roll = Math.floor((Math.random() * 6) + 1);
+    let roll = Math.floor((Math.random() * 6) + 1);
     $("#die-value").text(roll);
+    $("#hold").show();
     game.currentRoll = roll;
+    console.log(game.currentRoll);
+    game.hideButton();
     game.turnScore();
     game.displayGameDetails();
   });
 
   $("#hold").click(function() {
+    $("#hold").hide();
     game.totalScore();
     game.resetTurnScore();
     game.winCheck();
     game.switchTurn();
     game.displayGameDetails();
   });
+
+  $("#play-again").click(function() {
+    location.reload(true);
+  });
 });
+

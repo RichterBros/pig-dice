@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>Pig Dice</h1>
+      <h1 class="center">Pig Dice</h1>
     </div>
     <div class="container" id="show">
       <form id="player-info">
@@ -17,27 +17,38 @@
         <input id="player-one-name" class="form-control" type="text">
         <label for="player-two-name">Player 2: Enter your name</label>
         <input id="player-two-name" class="form-control" type="text">
-        <button type="submit" class="btn">Play!</button>
+        <button type="submit" class="btn btn-primary">Play!</button>
       </form>
+    <p><a href="https://en.wikipedia.org/wiki/Pig_%28dice_game%29" target="_blank">rules</a></p>
     </div>
     <div class="container" id="hide">
       <div class="row">
         <div class="col-md-2">
         </div>
         <div class="col-md-4">
-          <p>Current Roll</p>
+          <p class="die-box">Current Roll</p>
           <p id="die-value"></p>
-          <button type="button" class="btn" id="roll">Roll!</button>
         </div>
         <div class="col-md-4">
-          <p>Turn Total</p>
+          <p class="turn-box">Turn Total</p>
           <p id="turn-total"></p>
-          <button type="button" class="btn" id="hold">Hold!</button>
         </div>
         <div class="col-md-2">
         </div>
       </div>
-      <h5>It is your turn, <span id="turn"></span>!</h5>
+      <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-4" id="die-info">
+          <button type="button" class="btn btn-success" id="roll">Roll!</button>
+        </div>
+        <div class="col-md-4" id="turn-info">
+          <button type="button" class="btn btn-danger" id="hold">Hold!</button>
+        </div>
+        <div class="col-md-2">
+        </div>
+      </div>
+      <h3 class="center">It is your turn, <span id="turn"></span>!</h3>
       <div class="row">
         <div class="col-md-2">
         </div>
@@ -48,14 +59,18 @@
           <p id="player-one-score"></p>
         </div>
         <div class="col-md-4" id="player">
-          <p>Player Two</p>
-          <h3 id="player-two"></h3>
-          <p>Total Score</p>
-          <h3 id="player-two-score"></h3>
+          <p class="player-two">Player Two</p>
+          <h3 class="player-two" id="player-two"></h3>
+          <p class="player-two">Total Score</p>
+          <h3 class="player-two" id="player-two-score"></h3>
         </div>
         <div class="col-md-2">
         </div>
       </div> 
+    </div>
+    <div class="container" id="win">
+      <h1><span id="winner"></span> wins!</h1>
+      <button type="button" class="btn btn-primary" id="play-again">Play Again?</button>
     </div>
   </body>
 </html>
