@@ -21,8 +21,22 @@
       </form>
     </div>
     <div class="container" id="hide">
-      <p id="die-value"></p>
-      <h3>Turn total: <span id="turn-total"></span></h3>
+      <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-4">
+          <p>Current Roll</p>
+          <p id="die-value"></p>
+          <button type="button" class="btn" id="roll">Roll!</button>
+        </div>
+        <div class="col-md-4">
+          <p>Turn Total</p>
+          <p id="turn-total"></p>
+          <button type="button" class="btn" id="hold">Hold!</button>
+        </div>
+        <div class="col-md-2">
+        </div>
+      </div>
       <h5>It is your turn, <span id="turn"></span>!</h5>
       <div class="row">
         <div class="col-md-2">
@@ -41,11 +55,7 @@
         </div>
         <div class="col-md-2">
         </div>
-      </div>
-      <div class="row">
-        <button type="button" class="btn" id="roll">Roll!</button>
-        <button type="button" class="btn" id="hold">Hold!</button>
-      </div>  
+      </div> 
     </div>
   </body>
 </html>

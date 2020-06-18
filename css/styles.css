@@ -3,7 +3,6 @@
 }
 
 #player {
-  
   border-radius: 5px;
   border-style: solid;
   border-width: 1px;
@@ -27,4 +26,23 @@
 #die-value {
   font-size: 100px;
   font-weight: bolder;
+  float: right;
+}
+
+#turn-total {
+  font-size: 100px;
+  font-weight: bolder;
+  float: left;
+}
+
+#roll {
+  float: right;
+}
+
+#hold {
+  float: left;
+}
+
+#player-info {
+  width: 300px;
 }

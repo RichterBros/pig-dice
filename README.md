@@ -65,14 +65,12 @@ JohnNils Olson johnnils@gmail.com ,   Erich Richter erich.richter@gmail.com
 
 ## Technologies Used
 
-_## Technologies Used_
-
 * Visual Studio Code
 * HTML
 * CSS
 * Bootstrap
 * Javascript
-* JQuery_
+* JQuery
 
 ### License
 
