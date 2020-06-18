@@ -5,9 +5,10 @@ Game = function(players, turn, currentRoll) {
   this.currentRoll = currentRoll;
 }
 
-Player = function(name, score, id){
+Player = function(name, gameScore, turnScore, id) {
   this.name = name;
-  this.score = score;
+  this.gameScore = gameScore;
+  this.turnScore = turnScore;
   this.id = id;
 }
 
@@ -20,37 +21,58 @@ Game.prototype.switchTurn = function(game) {
 }
 
 Game.prototype.turnText = function(game) {
-  //console.log(this.players[1].name)
   if (this.turn === 1) {
     return this.players[0].name;
-   } else {
-   return this.players[1].name;
-   }
+  } else {
+  return this.players[1].name;
+  }
 }
 
-Game.prototype.addScore = function(game) {
+Game.prototype.turnTotal = function(game) {
+  if (this.turn === 1) {
+    return this.players[0].turnScore;
+  } else {
+    return this.players[1].turnScore;
+  }
+}
+
+Game.prototype.turnScore = function(game) {
   if (this.currentRoll === 1) {
     this.switchTurn();
-    //this.turnText();
   } else if (this.currentRoll > 1) {
     if (this.turn === this.players[0].id) {
-      this.players[0].score += this.currentRoll;
+      this.players[0].turnScore += this.currentRoll;
       
     } else if (this.turn === this.players[1].id) {
-      this.players[1].score += this.currentRoll;
+      this.players[1].turnScore += this.currentRoll;
       }
   }
+}
+
+Game.prototype.totalScore = function(game) {
+  if (this.turn === this.players[0].id) {
+    this.players[0].gameScore += this.players[0].turnScore;
+  } else {
+    this.players[1].gameScore += this.players[1].turnScore;
+  }
+}
+
+Game.prototype.resetTurnScore = function(game) {
+  this.players[0].turnScore = 0
+  this.players[1].turnScore = 0
 }
 
 // User Interface Logic
 Game.prototype.displayGameDetails = function(game) {
   
   let currentPlayer = this.turnText();
+  let turnTotal = this.turnTotal();
   
   $("#player-one").text(this.players[0].name);
   $("#player-two").text(this.players[1].name);
-  $("#player-one-score").text(this.players[0].score);
-  $("#player-two-score").text(this.players[1].score);
+  $("#player-one-score").text(this.players[0].gameScore);
+  $("#player-two-score").text(this.players[1].gameScore);
+  $("#turn-total").text(turnTotal);
   $("#turn").text(currentPlayer);
 }
 
@@ -70,11 +92,13 @@ $(document).ready(function() {
     event.preventDefault();
 
     playerOne.name = $("input#player-one-name").val();
-    playerOne.score =  0;
+    playerOne.turnScore = 0;
+    playerOne.gameScore =  0;
     playerOne.id = 1;
     
     playerTwo.name = $("input#player-two-name").val();
-    playerTwo.score = 0;
+    playerTwo.turnScore = 0;
+    playerTwo.gameScore = 0;
     playerTwo.id = 2;
     
     game.displayGameDetails();
@@ -86,11 +110,13 @@ $(document).ready(function() {
     roll = Math.floor((Math.random() * 6) + 1);
     $("#die-value").text(roll);
     game.currentRoll = roll;
-    game.addScore();
+    game.turnScore();
     game.displayGameDetails();
   });
 
   $("#hold").click(function() {
+    game.totalScore();
+    game.resetTurnScore();
     game.switchTurn();
     game.displayGameDetails();
   });
