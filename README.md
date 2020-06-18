@@ -1,12 +1,20 @@
-# _{Application Name}_
+# _Pig-Dice_
 
-#### _{Brief description of application}, {Date of current version}_
+#### _Dice Game, 6-18-2020_
 
-#### By _**{List of contributors}**_
+#### By _**JohnNils Olson, Erich Richter**_
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to "hold":
+
+* _If the player rolls a 1, they score nothing and it becomes the next player's turn._
+* _If the player rolls any other number, it is added to their turn total and the player's turn continues._
+* _If a player chooses to "hold", their turn total is added to their score, and it becomes the next player's turn._
+
+The first player to score 100 or more points wins.
+
+For example, the first player, Donald, begins a turn with a roll of 5. Donald could hold and score 5 points, but chooses to roll again. Donald rolls a 2, and could hold with a turn total of 7 points, but chooses to roll again. Donald rolls a 1, and must end his turn without scoring. The next player, Alexis, rolls the sequence 4-5-3-5-5, after which she chooses to hold, and adds her turn total of 22 points to her score._
 
 | Spec| Example input | Example Output
 | ----------- | ----------- | ----------- |
@@ -28,28 +36,46 @@ _{This is a detailed description of your application. Its purpose and usage.  Gi
 
 ## Setup/Installation Requirements
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Open by downloading:
+1. Internet Browser
+2. Code editor like VScode to view the codebase
 
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this app depends on?}_
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Open by downloading:
+
+1. Download this repository onto your computer
+2. Double click index.html to open it in your web browser
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Open via Bash/GitBash:
+
+1. Clone this repository onto your computer:
+    "git clone https://github.com/RichterBros/pig-dice"
+2. Navigate into the "roman-numeral" directory in Visual Studio Code or preferred text editor:
+3. Open the project
+    "code ."
+3. Open index.html in your browser:
+    "open index.html"
 
 ## Known Bugs
 
-_{Are there issues that have not yet been resolved that you want to let users know you know?  Outline any issues that would impact use of your application.  Share any workarounds that are in place. }_
+none
 
 ## Support and contact details
 
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
+JohnNils Olson johnnils@gmail.com ,   Erich Richter erich.richter@gmail.com
 
 ## Technologies Used
 
-_{Tell me about the languages and tools you used to create this app. Assume that I know you probably used HTML and CSS. If you did something really cool using only HTML, point that out.}_
+_## Technologies Used_
+
+* Visual Studio Code
+* HTML
+* CSS
+* Bootstrap
+* Javascript
+* JQuery_
 
 ### License
 
-*{Determine the license under which this application can be used.  See below for more details on licensing.}*
+Copyright (c) 2020 **_JohnNils Olson_**
 
-Copyright (c) 2016 **_{List of contributors or company name}_**
+This software is licensed under the MIT license.

@@ -1,3 +1,30 @@
 #hide {
   display: none;
 }
+
+#player {
+  
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgray;
+
+  padding: 10px;
+
+  margin: 10px;
+}
+
+#player-one-score {
+  font-size: 60px;
+  font-weight: bolder;
+}
+
+#player-two-score {
+  font-size: 60px;
+  font-weight: bolder;
+}
+
+#die-value {
+  font-size: 100px;
+  font-weight: bolder;
+}
