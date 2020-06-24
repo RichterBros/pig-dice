@@ -1,0 +1,28 @@
+{
+  "name": "pig-dice",
+  "version": "1.0.0",
+  "description": "Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to \"hold\":",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode development",
+    "start": "npm run build & webpack-dev-server --open --mode development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "4.39.3",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "dependencies": {
+    "bootstrap": "3.3.7",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  }
+}
