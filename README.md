@@ -61,7 +61,8 @@ none
 
 ## Support and contact details
 
-JohnNils Olson johnnils@gmail.com ,   Erich Richter erich.richter@gmail.com
+JohnNils Olson johnnils@gmail.com ,   Erich Richter,  Ruthie Newman
+
 
 ## Technologies Used
 
